@@ -30,3 +30,15 @@ if (!class_exists('Fragen\\Git_Updater\\Bootstrap')) {
 add_action('plugins_loaded', function () {
     new Fragen\Git_Updater\Bootstrap('autox.php');
 });
+
+function autox_page()
+{
+    echo '<h1>Autox</h1>';
+    echo '<p>Autox is a simple auto updater plugin from github.</p>';
+}
+
+function autox_menu()
+{
+    add_menu_page('Autox', 'Autox', 'manage_options', 'autox', 'autox_page');
+}
+add_action('admin_menu', 'autox_menu');
