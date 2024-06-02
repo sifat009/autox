@@ -33,7 +33,7 @@ add_action('plugins_loaded', function () {
 
 function autox_page()
 {
-    echo '<h1>Autox updated</h1>';
+    echo '<h1>Autox updated v0.0.2</h1>';
     echo '<p>Autox is a simple auto updater plugin from github.</p>';
 }
 
