@@ -12,7 +12,7 @@
  * Plugin Name:       Autox
  * Plugin URI:        https://github.com/sifat009/autox
  * Description:       A Simple Auto Updater Plugin From Github
- * Version:           0.0.3
+ * Version:           0.0.4
  * Author:            Sifat Haque
  * Author URI:        #
  * Text Domain:       autox
@@ -42,7 +42,7 @@ add_action('plugins_loaded', function () {
 
 function autox_page()
 {
-    echo '<h1>Autox updated v0.0.3</h1>';
+    echo '<h1>Autox updated v0.0.4</h1>';
     echo '<p>Autox is a simple auto updater plugin from github.</p>';
 }
 
