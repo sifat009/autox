@@ -12,7 +12,7 @@
  * Plugin Name:       Autox
  * Plugin URI:        https://github.com/sifat009/autox
  * Description:       A Simple Auto Updater Plugin From Github
- * Version:           0.0.2
+ * Version:           0.0.3
  * Author:            Sifat Haque
  * Author URI:        #
  * Text Domain:       autox
@@ -22,18 +22,27 @@
  * GitHub Branch:     main
  */
 
-// Include the Git Updater library
-if (!class_exists('Fragen\\Git_Updater\\Bootstrap')) {
-    include_once plugin_dir_path(__FILE__) . '/git-updater/vendor/autoload.php';
-}
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 add_action('plugins_loaded', function () {
-    new Fragen\Git_Updater\Bootstrap('autox.php');
+
+    $myUpdateChecker = PucFactory::buildUpdateChecker(
+        'https://github.com/sifat009/autox/',
+        __FILE__,
+        'autox'
+    );
+
+    //Set the branch that contains the stable release.
+    $myUpdateChecker->setBranch('main');
+
+    //Optional: If you're using a private repository, specify the access token like this:
+    // $myUpdateChecker->setAuthentication('your-token-here');
 });
 
 function autox_page()
 {
-    echo '<h1>Autox updated v0.0.2</h1>';
+    echo '<h1>Autox updated v0.0.3</h1>';
     echo '<p>Autox is a simple auto updater plugin from github.</p>';
 }
 
